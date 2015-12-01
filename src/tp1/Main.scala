@@ -6,9 +6,10 @@ package tp1
 object Main extends App {
   
   def run(t : Double, tmax : Double, s : System, out : String) : String = {
-    if (t > tmax || !s.cantApplyAnyReaction)
+    if (t > tmax || !s.cantApplyAnyReaction) {
+      println(out)
       out
-    else {
+    } else {
       val To = (1/s.sumHA)*Math.log(1/(new java.util.Random().nextDouble))
       val indexReaction = s.chooseReaction
       val state = s.applyReaction(indexReaction)
@@ -39,7 +40,5 @@ object Main extends App {
   }
   
   Some(new java.io.PrintWriter("plot.plt")).foreach { p => p.write(str.substring(0,str.length-2)); p.close}
-  
-  
   
 }

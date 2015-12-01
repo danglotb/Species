@@ -1,7 +1,21 @@
 Benjamin DANGLOT tp1 : Gillespie SSA
 
-Requiert scala 2.11.7 : http://www.scala-lang.org/news/2.11.7
+Requiert scala 2.11.7 : 
 
-Contructions du systeme, simulation.
+http://www.scala-lang.org/news/2.11.7 ou directement avec le gestionnaire de paquet : sudo apt-get scala dans un terminal
 
-En sortie on obtient un fichier out, qui contient l'évolution des espèces, et un script gnuplot plot.plt qui affichera le graphe de cette évolution.
+Commande de compilation : 
+
+scalac -d bin src/*/*scala
+
+Commande de lancement :
+
+scala -cp bin tp1.Main
+
+(depuis la racine du projet)
+
+Lorsque la simulation est terminée, l'application affiche l'évolution des quantités de matieres au cours du temps.
+
+De plus elle crée des fichiers : 
+	- out : fichier de données
+	- plot.plt : script gnuplot pour afficher les courbes correspondantes au fichier out.

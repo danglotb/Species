@@ -12,7 +12,7 @@ class System(r: List[Reaction], s: Map[String, Int]) {
 
   def cantApplyAnyReaction : Boolean = {
     r.foreach { reaction =>
-      if (reaction.reactants.keys.foldLeft(false) {case (acc, key) => acc || (s(key) >= reaction.reactants(key))})
+      if (reaction.reactants.keys.foldLeft(true) {case (acc, key) => acc && (s(key) >= reaction.reactants(key))})
         return true
     }
     false
