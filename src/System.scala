@@ -8,13 +8,12 @@ class System(r: List[Reaction], s: Map[String, Int]) {
 
   def reactions = r
 
-  def cantApplyAnyReaction: Unit = {
-    //    r.foreach { reaction =>
-    //      val b = true
-    //      reaction.reactants.keys.fold(false) {
-    //        case (acc,key) => acc || (s(key) + reaction.reactants(key))
-    //      }
-    //    }
+  def cantApplyAnyReaction : Boolean = {
+    r.foreach { reaction =>
+      if (reaction.reactants.keys.foldLeft(false) {case (acc, key) => acc || (s(key) >= reaction.reactants(key))})
+        return true
+    }
+    false
   }
 
   def chooseReaction: Int = choose(getH, new java.util.Random().nextDouble, 0.0, 0, sumHA)
@@ -39,7 +38,7 @@ class System(r: List[Reaction], s: Map[String, Int]) {
 
   def sumHA: Double = {
     val list = listH(Nil, 0)
-    list.fold(0.0) {
+    list.foldLeft(0.0) {
       case (acc, h) => acc + (h * r(list.indexOf(h)).speed)
     }
   }

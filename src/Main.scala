@@ -5,7 +5,7 @@
 object Main extends App {
   
   def run(t : Double, tmax : Double, s : System, out : String) : String = {
-    if (t > tmax)// || s.cantApplyAnyReaction)
+    if (t > tmax || !s.cantApplyAnyReaction)
       out
     else {
       val To = (1/s.sumHA)*Math.log(1/(new java.util.Random().nextDouble))
