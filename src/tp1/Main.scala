@@ -1,6 +1,7 @@
 
+package tp1
 /**
- * @author danglot
+ *  @author danglot
  */
 object Main extends App {
   
@@ -26,6 +27,19 @@ object Main extends App {
 
   val out = "To\t#A\t#B\t#C\t#D\n"
   
-  Some(new java.io.PrintWriter("out.csv")).foreach { p => p.write(run(0.0, tmax, s, out)); p.close}
+  Some(new java.io.PrintWriter("out")).foreach { p => p.write(run(0.0, tmax, s, out)); p.close}
+  
+  var str = "plot"
+  
+  var cpt = 2
+  
+  initState.keys.foreach { k =>
+    str += " \'out\' using 1:"+cpt+" title \'"+k+"\' with lines, "
+    cpt += 1
+  }
+  
+  Some(new java.io.PrintWriter("plot.plt")).foreach { p => p.write(str.substring(0,str.length-2)); p.close}
+  
+  
   
 }

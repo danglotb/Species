@@ -1,1 +1,1 @@
-plot 'out.csv' using 1:2 with lines, '' using 1:3 with lines, '' using 1:4 with lines, '' using 1:5 with lines
+plot 'out' using 1:2 title 'A' with lines,  'out' using 1:3 title 'B' with lines,  'out' using 1:4 title 'C' with lines,  'out' using 1:5 title 'D' with lines
