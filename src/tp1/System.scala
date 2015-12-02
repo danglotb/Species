@@ -38,7 +38,7 @@ class System(r: List[Reaction], s: Map[String, Int]) {
     new System(r, update(m, r(index).products, index, { _ + _ }))
   }
 
-  def sumHA: Double = {
+  def sumHA : Double = {
     val list = listH(Nil, 0)
     list.foldLeft(0.0) {
       case (acc, h) => acc + (h * r(list.indexOf(h)).speed)

@@ -1,0 +1,1 @@
+plot 'out18015.3' using 1:2 title 'A' with lines

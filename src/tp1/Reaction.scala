@@ -13,19 +13,32 @@ class Reaction(r : Map[String, Int], p : Map[String, Int], s : Double) {
   
   def computeH(s : Map[String,Int]) : Double = {
     r.keys.foldLeft(1.0) {
-      case (acc,key) => acc * (combine(s(key), r(key)))
+      case (acc,key) => acc * (optiCombine(s(key), r(key)))
     }
+  }
+  
+  private def optiCombine(n : Int, k : Int) : Int = {
+    if (n >= k) 
+      (optiFactorial(n,n-k) / factorial(k)).toInt
+    else 
+      0
+  }
+  
+  private def optiFactorial(n : Int, k : Int, acc : BigInt = 1) : BigInt = {
+   if(n == k) 
+     acc
+   else
+     optiFactorial(n-1,k,acc*n)
   }
   
   private def combine(n : Int, k : Int) : Int = {
     if (n >= k) 
-      (factorial(n,1) / (factorial(k,1) * factorial(n-k,1))).toInt
+      (factorial(n) / (factorial(k) * factorial(n-k))).toInt
     else 
         0
   }
-    
-  
-  private def factorial(i : Int, acc : BigInt) : BigInt = {
+
+  private def factorial(i : Int, acc : BigInt = 1) : BigInt = {
     if (i <= 1)
       acc
     else

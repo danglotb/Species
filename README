@@ -2,7 +2,7 @@ Benjamin DANGLOT tp1 : Gillespie SSA
 
 Requiert scala 2.11 : 
 
-http://www.scala-lang.org/news/2.11 ou directement avec le gestionnaire de paquet : sudo apt-get scala dans un terminal
+http://www.scala-lang.org/news/2.11.7 ou directement avec le gestionnaire de paquet : sudo apt-get scala dans un terminal
 
 Commande de compilation : 
 

@@ -1,0 +1,1 @@
+plot 'out10' using 1:2 title 'A' with lines
