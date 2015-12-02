@@ -2,6 +2,14 @@ Benjamin DANGLOT tp1 : Gillespie SSA
 
 Requiert scala 2.11.7 : http://www.scala-lang.org/news/2.11.7
 
+commande de compilation : 
+
+scalac -d bin/ -cp src src/*/*.scala
+
+commande d'execution :
+
+scala -cp bin tp1.Main
+
 Contructions du systeme, simulation.
 
 En sortie on obtient un fichier out, qui contient l'évolution des espèces, et un script gnuplot plot.plt qui affichera le graphe de cette évolution.
