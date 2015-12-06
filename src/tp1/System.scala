@@ -5,7 +5,9 @@ package tp1
  * @author danglot
  */
 class System(r: List[Reaction], s: Map[String, Int]) {
-
+  
+  var last_SumHA = 0.0
+  
   def state = s
 
   def reactions = r
@@ -18,13 +20,13 @@ class System(r: List[Reaction], s: Map[String, Int]) {
     false
   }
 
-  def chooseReaction: Int = choose(getH, new java.util.Random().nextDouble, 0.0, 0, sumHA)
+  def chooseReaction: Int = choose(getH, new java.util.Random().nextDouble, 0.0, 0)
 
-  private def choose(h: List[Double], rand: Double, acc: Double, index: Int, totalHA: Double): Int = {
+  private def choose(h: List[Double], rand: Double, acc: Double, index: Int): Int = {
     if (acc > rand || index == h.length)
       index - 1
     else
-      choose(h, rand, acc + ((h(index) * r(index).speed) / totalHA), index + 1, totalHA)
+      choose(h, rand, acc + ((h(index) * r(index).speed) / last_SumHA), index + 1)
   }
 
   def values: String = {
@@ -40,9 +42,10 @@ class System(r: List[Reaction], s: Map[String, Int]) {
 
   def sumHA : Double = {
     val list = listH(Nil, 0)
-    list.foldLeft(0.0) {
+    last_SumHA = list.foldLeft(0.0) {
       case (acc, h) => acc + (h * r(list.indexOf(h)).speed)
     }
+    last_SumHA
   }
 
   def getH: List[Double] = listH(Nil, 0)

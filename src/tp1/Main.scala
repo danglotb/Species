@@ -28,7 +28,7 @@ object Main extends App {
   
   val reactions = List(new Reaction(Map(("A"-> 1)), Map(), k))
   
-  val initValue = 18.0153*1000
+  val initValue = 0
   
   val initState = Map("A"->initValue.toInt)
 
