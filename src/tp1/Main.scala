@@ -24,7 +24,7 @@ object Main extends App {
 //
 //  val initState = Map("A" -> 150, "B" -> 50, "C" -> 10, "D" -> 0)
   
-  val k = 0.001
+  val k = 0.002
   
   val reactions = List(new Reaction(Map(("A"-> 2)), Map(), k))
   
