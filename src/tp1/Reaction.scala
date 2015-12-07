@@ -17,9 +17,9 @@ class Reaction(r : Map[String, Int], p : Map[String, Int], s : Double) {
     }
   }
   
-  private def optiCombine(n : Int, k : Int) : Int = {
+  private def optiCombine(n : Int, k : Int) : Double = {
     if (n >= k) 
-      (optiFactorial(n,n-k) / factorial(k)).toInt
+      (optiFactorial(n,n-k) / factorial(k)).toDouble
     else 
       0
   }

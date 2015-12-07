@@ -7,7 +7,7 @@ object Main extends App {
   
   def run(t : Double, tmax : Double, s : System, out : String) : String = {
     if (t > tmax || !s.cantApplyAnyReaction) {
-      println(out)
+//      println(out)
       out
     } else {
       val To = (1/s.sumHA)*Math.log(1/(new java.util.Random().nextDouble))
@@ -24,17 +24,17 @@ object Main extends App {
 //
 //  val initState = Map("A" -> 150, "B" -> 50, "C" -> 10, "D" -> 0)
   
-  val k = 0.1
+  val k = 0.001
   
-  val reactions = List(new Reaction(Map(("A"-> 1)), Map(), k))
+  val reactions = List(new Reaction(Map(("A"-> 2)), Map(), k))
   
-  val initValue = 0
+  val initValue = 100000
   
   val initState = Map("A"->initValue.toInt)
 
   val s = new System(reactions, initState)
 
-  val tmax : Double = 100
+  val tmax : Double = 0.01
 
   val out = ""
   
